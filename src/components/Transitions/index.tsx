@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
-import './style.scss'
-
+import styled from 'styled-components'
+import { BasicScale } from './basicScale'
+import { BasicSlide } from './basicSlide'
 interface Props {
   className?: string
   children?: ReactNode
@@ -8,7 +9,14 @@ interface Props {
 }
 
 const Transitions: React.FC<Props> = ({ className = '', children, mode = '' }) => {
-  return <div className={`transition-components ${className} ${mode}`}>{children}</div>
+  return (
+    <TransitionComponents className={`transition-components ${className} ${mode}`}>{children}</TransitionComponents>
+  )
 }
 
 export default Transitions
+
+export const TransitionComponents = styled('div')`
+  ${BasicScale}
+  ${BasicSlide}
+`

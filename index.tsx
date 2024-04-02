@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import styled from 'styled-components'
 import { Transitions } from './src'
-import './index.scss'
+import './index.css'
 
 const basicSlideModes: Array<string> = [
   'slide-top',
@@ -67,12 +68,12 @@ const TransitionComponents = () => {
 
   return (
     <Transitions mode={mode}>
-      <div className='page-container'>
+      <PageContainer>
         <div>
           <h3>{mode}</h3>
           <h1 onClick={onNextMode}>👉</h1>
         </div>
-      </div>
+      </PageContainer>
     </Transitions>
   )
 }
@@ -83,3 +84,16 @@ root.render(
     <TransitionComponents />
   </React.StrictMode>,
 )
+
+export const PageContainer = styled('div')`
+  width: 100vw;
+  height: 100vh;
+  background: #9c9c9c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    text-align: center;
+    cursor: pointer;
+  }
+`
