@@ -1,13 +1,14 @@
 import React, { ReactNode } from 'react'
+import './style.scss'
 
-interface Prop {
+interface Props {
   className?: string
   children?: ReactNode
-  mode: string
+  mode?: string
 }
 
-const Transitions: React.FC<Prop> = ({ className, children, mode }) => {
-  return <div className={`page-transition ${className} ${mode}`}>{children}</div>
+const Transitions: React.FC<Props> = ({ className = '', children, mode = '' }) => {
+  return <div className={`transition-components ${className} ${mode}`}>{children}</div>
 }
 
 export default Transitions
